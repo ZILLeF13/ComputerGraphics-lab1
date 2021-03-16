@@ -2,14 +2,13 @@
 #include<iostream>
 #include <QImage>
 #include "Filter.h"
-#include "Filter.cpp"
 void main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
 
     //return a.exec();
     std:: string s;
-    QImage img;
+    QImage image;
     for (int i = 0; i < argc; i++)
     {
         if (!std::strcmp(argv[i], "-p") && (i + 1 < argc))
@@ -17,8 +16,8 @@ void main(int argc, char *argv[])
             s = argv[i + 1];
         }
     }
-    img.load(QString(s.c_str()));
-    img.save("Images/Sourse.png");
+    image.load(QString(s.c_str()));
+    image.save("Sourse.png");
     InvertFilter invert;
-    invert.process(img).save("Images/Invert.png");
+    invert.process(image).save("Invert.png");
 }
